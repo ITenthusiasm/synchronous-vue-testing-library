@@ -15,6 +15,6 @@ These findings seem to make sense when considering [the documentation](https://v
 
 The tests are dividend into three categories:
 
-1. Synchronous Tests (3). These are synchronous tests where a normal DOM update changes the Vue state variables.
-2. Vuex Tests (1). These are synchronous tests that check usage of Vuex.
+1. **Synchronous Tests** (3). These are synchronous tests where a normal DOM update changes the Vue state variables.
+2. **Vuex Tests** (1). These are synchronous tests that check usage of Vuex.
 3. **Asynchronous Tests** (3). These are asynchronous tests where Vue updates state variables that influence the DOM.
