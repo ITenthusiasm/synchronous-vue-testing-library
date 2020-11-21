@@ -122,9 +122,7 @@ describe("Events Tester", () => {
     // `await`ing Vue.nextTick() will not work this time
     // `await`ing userEvent or fireEvent.change will not work this time
     // Notice that because waitFor is used, async functions are unnecessary
-    waitFor(() => {
-      expect(radio1).not.toBeChecked();
-    });
+    waitFor(() => expect(radio1).not.toBeChecked());
   });
 
   test("Incrementing a Vue count variable by clicking a button", async () => {
@@ -135,19 +133,19 @@ describe("Events Tester", () => {
 
     // After awaiting fireEvent
     await fireEvent.click(countButton);
-    expect(counter.innerHTML).toBe("1");
+    expect(counter).toHaveTextContent("1");
 
     // After awaiting userEvent
     await userEvent.click(countButton);
-    expect(counter.innerHTML).toBe("2");
+    expect(counter).toHaveTextContent("2");
 
     // After awaiting Vue.nextTick()
     userEvent.click(countButton);
     await Vue.nextTick();
-    expect(counter.innerHTML).toBe("3");
+    expect(counter).toHaveTextContent("3");
 
     // Using the safe `waitFor` function
     userEvent.click(countButton);
-    waitFor(() => expect(counter.innerHTML).toBe("4"));
+    waitFor(() => expect(counter).toHaveTextContent("4"));
   });
 });
