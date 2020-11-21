@@ -51,8 +51,8 @@ describe("Events Tester", () => {
     userEvent.click(radio2);
     expect(radio2).toBeChecked();
 
-    // Note: The previous radio button was not unchecked. This could be due to
-    // v-model, and more specifically not using fireEvent.update
+    // Note: The previous radio button was not unchecked synchronously. This is likely due
+    // to the fact that the state of the radio buttons is managed by Vue.
   });
 
   /* ONE store interaction */
@@ -127,7 +127,7 @@ describe("Events Tester", () => {
     });
   });
 
-  it("Increments count when button is clicked", async () => {
+  test("Incrementing a Vue count variable by clicking a button", async () => {
     const { getByText, getByLabelText } = render(EventsTester);
 
     const counter = getByLabelText(/count/i);
