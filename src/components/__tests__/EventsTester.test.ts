@@ -120,7 +120,7 @@ describe("Events Tester", () => {
 
     // This is do to Vue's asynchronous behavior
     // `await`ing Vue.nextTick() will not work this time
-    // `await`ing userEvent or fireEvent.change will not work this time
+    // `await`ing userEvent or fireEvent.change only once will not work this time
     // Notice that because waitFor is used, async functions are unnecessary
     waitFor(() => expect(radio1).not.toBeChecked());
   });
